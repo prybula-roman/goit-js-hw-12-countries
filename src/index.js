@@ -1,8 +1,13 @@
+import template from "../template/owntmpl.hbs";
+console.log(template);
 const debounce = require("lodash.debounce");
 console.log(debounce);
 
 let i = 0;
 //const arr = new Array();
+
+const inp = document.querySelector(".country");
+console.log(inp);
 
 const setCountry = document.querySelector(".country");
 //console.log(cntry);
@@ -24,8 +29,12 @@ setCountry.addEventListener(
         console.log("~~~~~~~~~", e.target.value);
         // console.log(data);
         resp.forEach((el) => {
-          if (el.name.indexOf(e.target.value) != -1) {
+          if (
+            el.name.toLowerCase().indexOf(e.target.value.toLowerCase()) != -1
+          ) {
             console.log("el.name=", el.name);
+            inp.insertAdjacentHTML("afterbegin", template(el.name));
+            console.log(inp);
           }
         });
 
