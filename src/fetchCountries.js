@@ -1,14 +1,8 @@
 const debounce = require("lodash.debounce");
 import template from "../template/owntmpl.hbs";
-import Notiflix from "notiflix";
-// import fetchCountries from "./fetchCountries";
 
-const inp = document.querySelector(".country");
-
-const setCountry = document.querySelector(".country");
-const list = document.querySelector(".list");
-setCountry.addEventListener(
-  "input",
+console.log(debounce);
+export default function fetchCountries() {
   debounce((e) => {
     fetch(`https://restcountries.com/v2/name/${e.target.value.trim()}`)
       .then((response) => {
@@ -48,5 +42,6 @@ setCountry.addEventListener(
       .catch((error) => {
         Notiflix.Notify.failure("Ooooops!!!!!");
       });
-  }, 500)
-);
+  }, 500);
+}
+// export { fetchCountries };
