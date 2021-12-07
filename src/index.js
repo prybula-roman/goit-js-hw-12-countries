@@ -1,6 +1,6 @@
 const debounce = require("lodash.debounce");
 import template from "../template/owntmpl.hbs";
-import Notiflix from "notiflix";
+import Notiflix from "./notiflix";
 // import fetchCountries from "./fetchCountries";
 
 const inp = document.querySelector(".country");
